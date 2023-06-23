@@ -5,7 +5,9 @@ export default function OrderSuccess() {
                 <img className="my-5 img-fluid d-block mx-auto" src="/images/success.png" alt="Order Success" width="200" height="200" />
 
                 <h2>Your Order has been placed successfully.</h2>
+
                 <a class="btn btn-success" href="/orders" role="button">Go to Orders</a>
+
             </div>
 
         </div>
