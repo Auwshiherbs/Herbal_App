@@ -11,7 +11,7 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
 
     let avatar;
     
-    let BASE_URL = process.env.FRONTEND_URL;
+    let BASE_URL = "https://auwshi.onrender.com";
     if(process.env.NODE_ENV === "production"){
         BASE_URL = `${req.protocol}://${req.get('host')}`
     }
