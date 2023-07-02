@@ -29,10 +29,10 @@ app.use('/api/v1/',blog);
 
 
 
-if(process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, '/home/ukistudent/Documents/2023.06.14/Herbal_App/frontend/build')));
+if("production" === "production") {
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
     app.get('*', (req, res) =>{
-        res.sendFile(path.resolve(__dirname, '/home/ukistudent/Documents/2023.06.14/Herbal_App/frontend/build/index.html'))
+        res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'))
     })
 }
 
