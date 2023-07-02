@@ -1,12 +1,15 @@
 import axios from 'axios';
 import { productsFail, productsSuccess, productsRequest, adminProductsRequest, adminProductsSuccess, adminProductsFail } from '../slices/productsSlice';
 import { productFail, productSuccess, productRequest, createReviewRequest, createReviewSuccess, createReviewFail, newProductRequest, newProductSuccess, newProductFail, deleteProductRequest, deleteProductSuccess, deleteProductFail, updateProductRequest, updateProductSuccess, updateProductFail, reviewsRequest, reviewsSuccess, reviewsFail, deleteReviewRequest, deleteReviewSuccess, deleteReviewFail } from '../slices/productSlice';
+const api = axios.create({
+    baseURL: 'https://auwshi.onrender.com/' // Replace with your actual base URL
+  });
 
 export const getProducts = (keyword, price, category, rating, currentPage) => async (dispatch) => {
 
     try {  
         dispatch(productsRequest()) 
-        let link = `https://auwshi.onrender.com/api/v1/products?page=${currentPage}`;
+        let link = `/api/v1/products?page=${currentPage}`;
         
         if(keyword) {
             link += `&keyword=${keyword}`
@@ -21,7 +24,7 @@ export const getProducts = (keyword, price, category, rating, currentPage) => as
             link += `&ratings=${rating}`
         }
         
-        const { data }  =  await axios.get(link);
+        const { data }  =  await api.get(link);
         dispatch(productsSuccess(data))
     } catch (error) {
         //handle error
@@ -35,7 +38,7 @@ export const getProduct = id => async (dispatch) => {
 
     try {  
         dispatch(productRequest()) 
-        const { data }  =  await axios.get(`https://auwshi.onrender.com/api/v1/product/${id}`);
+        const { data }  =  await api.get(`/api/v1/product/${id}`);
         dispatch(productSuccess(data))
     } catch (error) {
         //handle error
