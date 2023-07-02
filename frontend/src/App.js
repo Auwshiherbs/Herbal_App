@@ -66,7 +66,7 @@ function App() {
                   <ToastContainer theme='dark' />
                   <Routes>
                       <Route path='/' element={<Home/>} />
-                      <Route path='/product' element={<Shop/>} />
+                      <Route path='https://64a0f64680be9d0008d0fdf0--mellifluous-ganache-f68e05.netlify.app/product' element={<Shop/>} />
                       <Route path='/aboutus' element={<About/>}/>
                       <Route path='/blog' element={<CustomerBlog/>}/>
                       <Route exact path="/admin/reports" element={<ReportList/>} />
