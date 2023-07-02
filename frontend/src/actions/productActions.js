@@ -6,7 +6,7 @@ export const getProducts = (keyword, price, category, rating, currentPage) => as
 
     try {  
         dispatch(productsRequest()) 
-        let link = `/api/v1/products?page=${currentPage}`;
+        let link = `https://auwshi.onrender.com/api/v1/products?page=${currentPage}`;
         
         if(keyword) {
             link += `&keyword=${keyword}`
@@ -35,7 +35,7 @@ export const getProduct = id => async (dispatch) => {
 
     try {  
         dispatch(productRequest()) 
-        const { data }  =  await axios.get(`/api/v1/product/${id}`);
+        const { data }  =  await axios.get(`https://auwshi.onrender.com/api/v1/product/${id}`);
         dispatch(productSuccess(data))
     } catch (error) {
         //handle error
